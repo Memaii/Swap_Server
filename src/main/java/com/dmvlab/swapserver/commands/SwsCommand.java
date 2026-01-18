@@ -295,15 +295,6 @@ public class SwsCommand extends CommandBase {
                     }
                     s.setMain(isMain);
                 }
-                // If the user didn't specify main, we leave it as is?
-                // The requirements said: "<main mais peut être nul si on ne veut pas le passer
-                // en serveurmain>"
-                // Interpreting this as optional argument. If present and true, set main.
-                // If not present, keep existing? Or if present, set to value.
-                // Re-reading: "si on ne veut pas le passer en serveurmain" implies we might
-                // want to unset it or just not change it.
-                // Standard behavior: if provided, update. If not, maybe keep?
-                // But typically full modify replaces. Let's assume keep if not provided.
 
                 serverManager.save();
                 sender.sendMessage(Message.raw("Modified server " + (index + 1) + " (" + oldName + " -> " + newName
@@ -384,18 +375,15 @@ public class SwsCommand extends CommandBase {
     }
 
     private void performTeleport(CommandSender sender, ServerEntry target, CommandContext ctx) throws Exception {
-        // Check if sender is a Player
-        if (!sender.getClass().getName().contains("Player")) { // Safer check or use instanceof if Player is imported
-            // Note: We can import com.hypixel.hytale.server.core.entity.entities.Player
-            // But for now, let's just assume if it's not PlayerRef, it might be Player.
-            // Wait, I will add the import.
+
+        if (!sender.getClass().getName().contains("Player")) {
         }
 
         PlayerRef player;
         if (sender instanceof PlayerRef) {
             player = (PlayerRef) sender;
         } else if (sender.getClass().getName().equals("com.hypixel.hytale.server.core.entity.entities.Player")) {
-            // We need to cast to Player to get getPlayerRef()
+
             com.hypixel.hytale.server.core.entity.entities.Player realPlayer = (com.hypixel.hytale.server.core.entity.entities.Player) sender;
             player = realPlayer.getPlayerRef();
         } else {
@@ -408,7 +396,7 @@ public class SwsCommand extends CommandBase {
         // Save Position
         Vector3d pos = player.getTransform().getPosition();
         Vector3f rot = player.getHeadRotation();
-        // Assuming rot.y is yaw, rot.x is pitch
+
         PlayerPosition pPos = new PlayerPosition(
                 configManager.getServerName(),
                 pos.x, pos.y, pos.z,

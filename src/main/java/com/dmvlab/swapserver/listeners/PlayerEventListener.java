@@ -30,21 +30,9 @@ public class PlayerEventListener {
 
         if (pos != null) {
             PlayerRef ref = player.getPlayerRef();
-            // Assuming Player has getWorld()
+
             try {
-                // Determine World - Attempting to use reflection or assumption if method not
-                // visible in public API dump
-                // If player is a Player object, it likely has access to its world.
-                // Using reflection to be safe if direct call fails compile? No, let's try
-                // direct call.
-                // ref.updatePosition(player.getWorld(), new Transform(new Vector3d(pos.x,
-                // pos.y, pos.z)), new Vector3f(pos.pitch, pos.yaw, 0));
 
-                // Correction: Vector3f structure -> x=pitch, y=yaw?
-                // In SwsCommand: yaw=y, pitch=x.
-                // So Vector3f(pos.pitch, pos.yaw, 0) matches x=pitch, y=yaw.
-
-                // Note: If player.getWorld() fails, we might need another way.
                 ref.updatePosition(player.getWorld(), new Transform(new Vector3d(pos.x, pos.y, pos.z)),
                         new Vector3f(pos.pitch, pos.yaw, 0));
             } catch (Exception e) {

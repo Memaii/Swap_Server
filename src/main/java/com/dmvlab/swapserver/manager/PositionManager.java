@@ -34,16 +34,6 @@ public class PositionManager {
         }
     }
 
-    // Note: Due to gson map deserialization of generic types, we might get
-    // LinkedHashMaps instead of PlayerPosition objects if not careful.
-    // For specific implementation, we should manually parse or use TypeToken.
-    // However, to keep it simple and consistent with the user snippet which casted
-    // things manually in the EventListener,
-    // I will ensure we treat the map carefully.
-    // Actually, in the user snippet for PlayerEventListener, they manually parse
-    // the map from the payload.
-    // But here we are loading from file. Let's fix the type safety properly.
-
     public synchronized void savePlayerPosition(String uuid, String serverName, PlayerPosition pos) {
         players.computeIfAbsent(uuid, k -> new HashMap<>()).put(serverName, pos);
         save();
