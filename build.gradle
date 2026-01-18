@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+}
+
+group 'com.dmvlab'
+version '0.1.0'
+
+// User requested Java 25. Ensure you have a JDK 25 installed or available.
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Local Hytale Server jar
+    compileOnly files('libs/HytaleServer.jar')
+
+    // Gson is usually needed for JSON handling
+    implementation 'com.google.code.gson:gson:2.10.1'
+    
+    // JUnit for testing
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jar {
+    archiveBaseName = 'Swap_Server'
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+

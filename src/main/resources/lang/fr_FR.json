@@ -1,0 +1,8 @@
+{
+    "no_permission": "§cVous n'avez pas la permission.",
+    "server_not_found": "§cServeur introuvable : {0}",
+    "modify_usage": "§eUsage: /sws modify <serveur>",
+    "modify_success": "§aServeur modifié : {0}",
+    "modify_field_invalid": "§cChamp invalide. Champs: ip, port, name, main",
+    "cooldown": "§eVeuillez attendre {0}s avant de réutiliser la commande."
+}

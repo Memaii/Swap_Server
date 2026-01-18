@@ -1,0 +1,8 @@
+{
+    "no_permission": "§cYou do not have permission.",
+    "server_not_found": "§cServer not found: {0}",
+    "modify_usage": "§eUsage: /sws modify <server>",
+    "modify_success": "§aServer updated: {0}",
+    "modify_field_invalid": "§cInvalid field. Fields: ip, port, name, main",
+    "cooldown": "§ePlease wait {0}s before using this command again."
+}

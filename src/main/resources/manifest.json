@@ -1,0 +1,19 @@
+{
+    "Group": "com.dmvlab",
+    "Name": "SwapServer",
+    "Version": "0.1.0",
+    "Description": "SwapServer - A simple server transfert plugin for Hytale Server",
+    "Authors": [
+        {
+            "Name": "DmvLab",
+            "Website": "https://dmvlab.eu"
+        }
+    ],
+    "Main": "com.dmvlab.swapserver.SwapServerPlugin",
+    "ServerVersion": "*",
+    "Dependencies": {},
+    "OptionalDependencies": {},
+    "DisabledByDefault": false,
+    "IncludesAssetPack": false,
+    "SubPlugins": []
+}
