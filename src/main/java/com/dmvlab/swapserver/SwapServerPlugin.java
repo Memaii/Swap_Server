@@ -26,7 +26,7 @@ public class SwapServerPlugin extends JavaPlugin {
     }
 
     @Override
-    protected void start0() {
+    protected void start() {
         // Initialize managers
         Path dataFolder = Paths.get("mods/Swap_Server/data");
         configManager = new ConfigManager(dataFolder);

@@ -1,0 +1,39 @@
+$C = "../Common.ui";
+
+Group {
+  LayoutMode: Center;
+
+  Group #SwapServerHud {
+    Background: #0b1018(0.92);
+    Anchor: (Width: 700, Height: 400);
+    Padding: (Full: 16);
+    Label #Title {
+      Background: #111a28(0.92);
+      Style: (TextColor: #ffffff, FontSize: 24);
+      Anchor: (Width: 668, Height: 44);
+      Padding: (Full: 8);
+      Text: "Swap Server";
+    }
+    Group {
+      LayoutMode: Top;
+      Anchor: (Height: 10);
+    }
+    Group {
+      LayoutMode: Top;
+      Background: #0a0f16(0.55);
+      Anchor: (Width: 668, Height: 250);
+      Padding: (Full: 10);
+      Group #ServerList {
+        LayoutMode: Top;
+      }
+    }
+    Group {
+      LayoutMode: Top;
+      Anchor: (Height: 10);
+    }
+    Group #AddServer {
+      LayoutMode: Top;
+      Anchor: (Width: 668, Height: 64);
+    }
+  }
+}

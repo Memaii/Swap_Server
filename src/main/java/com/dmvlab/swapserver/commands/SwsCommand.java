@@ -5,6 +5,11 @@ import com.hypixel.hytale.server.core.command.system.CommandContext;
 import com.hypixel.hytale.server.core.command.system.CommandSender;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.Message;
+import com.hypixel.hytale.component.Ref;
+import com.hypixel.hytale.component.Store;
+import com.hypixel.hytale.server.core.entity.entities.Player;
+import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
+import com.hypixel.hytale.server.core.universe.world.World;
 
 import com.dmvlab.swapserver.manager.ConfigManager;
 import com.dmvlab.swapserver.manager.PositionManager;
@@ -12,6 +17,7 @@ import com.dmvlab.swapserver.manager.ServerManager;
 import com.dmvlab.swapserver.model.ServerEntry;
 import com.dmvlab.swapserver.net.TransferPayload;
 import com.dmvlab.swapserver.i18n.I18nManager;
+import com.dmvlab.swapserver.ui.SwapServerPage;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -60,6 +66,10 @@ public class SwsCommand extends CommandBase {
         // if present)
         int firstArgIndex = findFirstArgIndex(tokens, this.getName());
 
+        if (firstArgIndex == -1 && tryOpenSwapUi(ctx)) {
+            return;
+        }
+
         // If a first argument exists and is not one of the subcommand names, try
         // teleport shorthand
         if (firstArgIndex != -1 && firstArgIndex < tokens.length) {
@@ -87,6 +97,46 @@ public class SwsCommand extends CommandBase {
         sender.sendMessage(Message.raw("  /sws modify <index> ... : Modify a server"));
         sender.sendMessage(Message.raw("  /sws delete <name>"));
         sender.sendMessage(Message.raw("  /sws home"));
+    }
+
+    private boolean tryOpenSwapUi(CommandContext ctx) {
+        if (!ctx.isPlayer()) {
+            return false;
+        }
+
+        Ref<EntityStore> entityRef = ctx.senderAsPlayerRef();
+        if (entityRef == null || !entityRef.isValid()) {
+            return false;
+        }
+
+        Store<EntityStore> store = entityRef.getStore();
+        EntityStore entityStore = store.getExternalData();
+        if (entityStore == null) {
+            return false;
+        }
+
+        World world = entityStore.getWorld();
+        if (world == null) {
+            return false;
+        }
+
+        world.execute(() -> {
+            if (!entityRef.isValid()) {
+                return;
+            }
+
+            Player player = store.getComponent(entityRef, Player.getComponentType());
+            if (player == null) {
+                return;
+            }
+
+            if (player.getPageManager().getCustomPage() != null) {
+                return;
+            }
+
+            player.getPageManager().openCustomPage(entityRef, store, new SwapServerPage(player.getPlayerRef()));
+        });
+        return true;
     }
 
     private boolean checkCooldown(CommandSender sender) {
