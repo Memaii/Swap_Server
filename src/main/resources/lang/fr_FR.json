@@ -1,8 +1,15 @@
-{
+﻿{
     "no_permission": "§cVous n'avez pas la permission.",
     "server_not_found": "§cServeur introuvable : {0}",
     "modify_usage": "§eUsage: /sws modify <serveur>",
     "modify_success": "§aServeur modifié : {0}",
     "modify_field_invalid": "§cChamp invalide. Champs: ip, port, name, main",
-    "cooldown": "§eVeuillez attendre {0}s avant de réutiliser la commande."
+    "cooldown": "§eVeuillez attendre {0}s avant de réutiliser la commande.",
+    "ui_title": "Changer de serveur",
+    "ui_join": "Rejoindre",
+    "ui_no_servers": "Aucun serveur disponible",
+    "ui_placeholder_name": "Nom du serveur",
+    "ui_placeholder_ip": "Adresse du serveur",
+    "ui_add": "+ Ajouter",
+    "swapserver.commands.sws.desc": "Ouvre le menu de changement de serveur"
 }

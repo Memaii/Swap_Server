@@ -27,16 +27,16 @@ $C.@PageOverlay {
         LayoutMode: TopScrolling;
         ScrollbarStyle: $C.@DefaultScrollbarStyle;
         Background: #0a0f16(0.55);
-        Anchor: (Width: 668, Height: 324);
+        Anchor: (Width: 668, Height: 250);
         Padding: (Full: 10);
       }
       Group {
         LayoutMode: Top;
-        Anchor: (Height: 0);
+        Anchor: (Height: 10);
       }
       Group #AddServer {
         LayoutMode: Center;
-        Anchor: (Width: 668, Height: 0);
+        Anchor: (Width: 668, Height: 64);
       }
     }
   }
