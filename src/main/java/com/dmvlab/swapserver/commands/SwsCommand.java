@@ -27,6 +27,16 @@ public class SwsCommand extends CommandBase {
     }
 
     /**
+     * Disables automatic permission generation for this command.
+     *
+     * @return false to prevent permission creation
+     */
+    @Override
+    protected boolean canGeneratePermission() {
+        return false;
+    }
+
+    /**
      * Executes the command and opens the UI for players only.
      *
      * @param context command context provided by the server
