@@ -1,0 +1,33 @@
+$C = "../Common.ui";
+
+Group {
+  LayoutMode: Left;
+  Background: #0d121a(0.65);
+  Anchor: (Width: 660, Height: 64);
+  
+  $C.@TextField #NewServerName {
+    Background: #101826(0.85);
+    Anchor: (Width: 250, Height: 38);
+    Padding: (Left: 10, Right: 10, Top: 6, Bottom: 6);
+    Style: (FontSize: 16, TextColor: #ffffff);
+    PlaceholderText: "Server's name";
+  }
+  Group {
+    Anchor: (Width: 10);
+  }
+  $C.@TextField #NewServerIp {
+    Background: #101826(0.85);
+    Anchor: (Width: 250, Height: 38);
+    Padding: (Left: 10, Right: 10, Top: 6, Bottom: 6);
+    Style: (FontSize: 16, TextColor: #ffffff);
+    PlaceholderText: "Server's ip";
+  }
+  Group {
+    Anchor: (Width: 10);
+  }
+  $C.@TextButton #AddButton {
+    @Text = "+ Add";
+    Background: #2ecc71(0.95);
+    Anchor: (Width: 140, Height: 38);
+  }
+}

@@ -1,0 +1,43 @@
+$C = "../Common.ui";
+
+$C.@PageOverlay {
+  LayoutMode: Top;
+
+  Group {
+    LayoutMode: Center;
+    Anchor: (Top: 40);
+
+    Group #SwapServerHud {
+      LayoutMode: Top;
+      Background: #0b1018(0.92);
+      Anchor: (Width: 700, Height: 400);
+      Padding: (Full: 16);
+      Label #Title {
+        Background: #111a28(0.92);
+        Style: (TextColor: #ffffff, FontSize: 24, Alignment: Center);
+        Anchor: (Width: 668, Height: 44);
+        Padding: (Full: 8);
+        Text: "Swap Server";
+      }
+      Group {
+        LayoutMode: Top;
+        Anchor: (Height: 10);
+      }
+      Group #ServerList {
+        LayoutMode: TopScrolling;
+        ScrollbarStyle: $C.@DefaultScrollbarStyle;
+        Background: #0a0f16(0.55);
+        Anchor: (Width: 668, Height: 324);
+        Padding: (Full: 10);
+      }
+      Group {
+        LayoutMode: Top;
+        Anchor: (Height: 0);
+      }
+      Group #AddServer {
+        LayoutMode: Center;
+        Anchor: (Width: 668, Height: 0);
+      }
+    }
+  }
+}

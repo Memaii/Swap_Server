@@ -1,0 +1,23 @@
+$C = "../Common.ui";
+
+Group {
+  LayoutMode: Left;
+  Background: #101826(0.75);
+  Anchor: (Width: 660, Height: 54);
+
+  Label #ServerName {
+    Background: #0b1018(0.85);
+    Style: (FontSize: 16, TextColor: #ffffff);
+    Anchor: (Width: 480, Height: 38);
+    Padding: (Left: 10, Right: 10, Top: 6, Bottom: 6);
+    Text: "Server";
+  }
+  Group {
+    Anchor: (Width: 10);
+  }
+  $C.@TextButton #JoinButton {
+    @Text = "Join";
+    Background: #2d7cff(0.95);
+    Anchor: (Width: 160, Height: 38);
+  }
+}
