@@ -3,7 +3,7 @@ plugins {
 }
 
 group 'com.dmvlab'
-version '0.1.0'
+version '1.0.0'
 
 // User requested Java 25. Ensure you have a JDK 25 installed or available.
 java {

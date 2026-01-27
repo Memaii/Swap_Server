@@ -1,7 +1,7 @@
 {
     "Group": "com.dmvlab",
     "Name": "SwapServer",
-    "Version": "0.1.0",
+    "Version": "1.0.0",
     "Description": "SwapServer - A simple server transfert plugin for Hytale Server",
     "Authors": [
         {
